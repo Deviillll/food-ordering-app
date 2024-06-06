@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav>
-    <div className="flex justify-between px-5 py-2 uppercase items-center  bg-orange-400 shadow-xl shadow-neutral-300">
+    <div className="flex justify-between px-5 py-2 uppercase items-center  bg-orange-400 shadow-md">
       <div className="">
         <h1 className="font-semibold text-xl md:text-2xl tracking-tight">Food bay</h1>
       </div>

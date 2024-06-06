@@ -22,7 +22,7 @@ const Header = () => {
           fugiat officiis. Illum numquam sit amet consectetur adipisicing elit. Eveniet,
           fugiat officiis. Illum numquam !
         </p>
-        <button className="md:px-6 px-3 py-2 animate-bounce hover:animate-none bg-orange-400 uppercase font-medium transition-colors ease-in-out hover:scale-105 hover:bg-white hover:text-black text-white rounded-xl">
+        <button className="md:px-6 px-3 py-2 animate-bounce hover:animate-none  bg-orange-400 uppercase font-medium transition-colors ease-in-out hover:scale-105 hover:bg-white hover:text-black text-white rounded-xl">
           shop now
         </button>
       </div>

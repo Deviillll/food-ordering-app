@@ -4,9 +4,9 @@ import { Catagory,MenuItems } from "../constants/data";
 const CatagoryItems = () => {
     const [catagory, setcatagory] = useState("All")
   return (
-    <div className='px-5    '>
+    <div className=''>
 
-<div className='flex  items-center justify-center md:justify-around mt-10 text-center overflow-x-auto gap-4 '>       
+<div className='flex  items-center justify-center md:px-10 md:justify-around mt-10 text-center overflow-x-auto gap-4 '>       
         {Catagory.map((item, index) => {
             return (
                 
@@ -19,13 +19,16 @@ const CatagoryItems = () => {
         })}
 
          </div>
+
+         <div className='mt-7 ml-10 text-3xl text-orange-400 underline font-semibold '><h1 className='tracking-wider'>{catagory}</h1></div>
       
-       <div className='mt-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-evenly mx-auto  items-center  w-screen px-5'>
+       <div className='mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2 px-4 md:px-8 mx-auto w-screen h-full'>
 
         {MenuItems.map((item, index) => {
             return (
-                <div key={index} className={`w-52 h-52  md:w-44 md:h-52  bg-white mt-5 md:mt-8 shadow-md  ${catagory===item.cata || catagory==="All" ? "block" : "hidden"}`}>
-                    <img src={item.image} alt={item.name} className='w-full h-32 object-cover rounded-xl object-center'/>
+                <div key={index} className={`w-44 h-60 sm:w-[200px] sm:h-[240px]  md:w-[200px] md:h-60 
+                 bg-white mt-5 md:mt-8 shadow-md  ${catagory===item.cata || catagory==="All" ? "block" : "hidden"}`}>
+                    <img src={item.image} alt={item.name} className='w-full h-40 object-cover rounded-t-2xl object-center'/>
                     <div className='p-4'>
                         <h1 className='text-md font-medium text-orange-500'>{item.name}</h1>
                         <p className='text-sm mt-2 text-zinc-800 font-medium'>${item.price}</p>
@@ -34,6 +37,8 @@ const CatagoryItems = () => {
             )
         }
         )}
+
+        
        
 
        </div>

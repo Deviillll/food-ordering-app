@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const inter = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
        <div className="overflow-hidden"> 
        <Navbar />
         {children}
+        <Footer />
        </div>
         </body>
     </html>

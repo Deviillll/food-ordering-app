@@ -4,8 +4,8 @@ const DownloadApp = () => {
   return (
     <div className='mt-20 h-[60vh]'>
        <section className="text-orange-400 bg-gray-900 body-font px-5 ">
-  <div className="container px-5 py-24 mx-auto flex items-center md:flex-row flex-col">
-    <div className="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
+  <div className="container px-5 py-24 mx-auto flex items-center md:flex-row  flex-col">
+    <div className="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0  w-full md:w-auto md:text-left text-center">
       <h2 className="text-md text-orange-400 tracking-widest font-medium title-font mb-1">
         Food bay
       </h2>

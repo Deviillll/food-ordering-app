@@ -10,7 +10,7 @@ const page = () => {
       <Header />
       <Catagory />
       <DownloadApp />
-      <SaleProduct />
+      
     </div>
   )
 }

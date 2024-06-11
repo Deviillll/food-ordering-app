@@ -4,12 +4,12 @@ import React from "react";
 const Header = () => {
   return (
     <div
-      className="flex flex-col uppercase relative z-[1]  bg-center bg-cover px-10 justify-center items-center text-center h-[70vh] md:h-[91vh]  w-screen"
+      className="flex flex-col uppercase relative z-[1]  bg-center bg-cover px-10 justify-center items-center text-center h-[70vh] md:h-screen  w-screen"
       style={{
         backgroundImage: `url('/bg-3.jpg')`,
       }}
     >
-      <div className="absolute  h-[70vh]  md:h-[91vh] w-screen bg-black/90 z-[2] ">
+      <div className="absolute  h-[70vh]  md:h-screen w-screen bg-black/85 z-[2] ">
 
       </div>
       <div className="relative z-10 space-y-9">

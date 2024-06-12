@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-import Catagory from './components/Catagory'
+import Catagory from './components/CatagoryHeading'
 import DownloadApp from './components/DownloadApp'
 import SaleProduct from './components/SaleProduct'
 

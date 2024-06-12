@@ -2,17 +2,19 @@
 import React, { useState } from "react";
 import { pages } from "../constants/data";
 import Link from "next/link";
-import { Search } from "lucide-react";
+
 import { ShoppingBag } from "lucide-react";
 import { User } from "lucide-react";
 import { AlignJustify } from "lucide-react";
 import { X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import useCartStore from '../store/store';
+import CartPage from "./CartPage";
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [cartstate, setCart] = useState(false);
   const path = usePathname();
   
   const Cart = useCartStore((state) => state.cart);
@@ -35,9 +37,18 @@ const Navbar = () => {
       <div className="flex justify-between gap-4 md:gap-6 relative ">
        
        
-        <ShoppingBag  />
+        <ShoppingBag  onClick={()=>setCart((pre)=>!pre)} className="cursor-pointer hover:scale-105" />
+          {cartstate && 
+          
+            <CartPage setCart={setCart} />
+          
+          }
         <User className="hidden md:block" />
         <span className="absolute w-4 h-4 -top-1 text-center flex justify-center items-center text-xs md:text-sm  md:left-[16px] left-4 rounded-full bg-slate-200 p-2">{Cart.length}</span>
+       
+
+
+
 
         {/* mobile menu */}
 
@@ -49,7 +60,7 @@ const Navbar = () => {
       </div>
     </div>
      {open && 
-      <div className=" flex flex-col w-[60vw]  text-center font-semibold text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-6 bg-orange-400 h-[98vh]">
+      <div className=" flex flex-col w-[60vw] md:hidden text-center font-semibold text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-6 bg-orange-400 h-[98vh]">
        { pages.map((page)=>(
         <Link className="inline-block " href={page.path} key={page.name}>
           {page.name}
@@ -59,6 +70,8 @@ const Navbar = () => {
         
       </div>
     }
+    
+    
     </nav>
   );
 };

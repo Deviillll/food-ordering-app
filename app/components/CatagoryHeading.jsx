@@ -1,5 +1,5 @@
 import React from 'react'
-import CatagoryItems from './CatagoryItems'
+import CatagoryItems from './CatagoryContainer'
 
 const Catagory = () => {
   return (

@@ -60,7 +60,7 @@ const Navbar = () => {
       </div>
     </div>
      {open && 
-      <div className=" flex flex-col w-[60vw] md:hidden text-center font-semibold text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-6 bg-orange-400 h-[98vh]">
+      <div className=" flex flex-col w-[60vw]  text-center font-semibold text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-6 bg-orange-400 h-[98vh]">
        { pages.map((page)=>(
         <Link className="inline-block " href={page.path} key={page.name}>
           {page.name}

@@ -6,9 +6,18 @@ const CataProducts = ({ catagory }) => {
   const addToCart = useCartStore((state) => state.addToCart);
   const removePro = useCartStore((state) => state.removeFromCart);
   const Cart = useCartStore((state) => state.cart);
+ 
+  const isInCart = (productId) => {
+    return Cart.some((product) => product.id === productId);
+  };
+  
+
+  
+  
   return (
     <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2 px-4  md:px-8 mx-auto w-screen h-full">
       {menuitem.map((item, index) => {
+        const productIsInCart = isInCart(item.id);
         return (
           <div
             key={index}
@@ -33,14 +42,9 @@ const CataProducts = ({ catagory }) => {
                 </p>
               </div>
               <div>
-                {/* <Plus className='cursor-pointer' onClick={()=>addToCart(item)} size={20} /> */}
-                {!Cart.length ? (
-                  <Plus
-                    className="cursor-pointer"
-                    onClick={() => addToCart(item)}
-                    size={20}
-                  />
-                ) : (
+               {/* { conditional rendering } */}
+               
+                {productIsInCart ? (
                   <div className="flex items-center justify-between space-x-2">
                     <Plus
                       className="cursor-pointer"
@@ -48,7 +52,7 @@ const CataProducts = ({ catagory }) => {
                       onClick={() => addToCart(item)}
                     />
                     <span className="text-orange-500 font-semibold text-md">
-                      {""}
+                      {Cart.find((product) => product.id === item.id)?.quantity || 0}
                     </span>
                     <Minus
                       className="cursor-pointer"
@@ -56,6 +60,12 @@ const CataProducts = ({ catagory }) => {
                       size={15}
                     />
                   </div>
+                ) : (
+                  <Plus
+                    className="cursor-pointer"
+                    onClick={() => addToCart(item)}
+                    size={20}
+                  />
                 )}
               </div>
             </div>

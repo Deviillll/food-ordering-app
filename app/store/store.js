@@ -38,6 +38,15 @@ const useCartStore = create((set) => {
         return { cart: updatedCart };
       });
     },
+    // isInCart: ()=>{
+    //   set((state) => {
+    //   MenuItems.map((item) => {
+    //   const isInCart = state.Cart && Cart.id === item.id;
+    //   console.log(isInCart);
+
+    //   return isInCart;
+    // })} )}
+
     
 
 

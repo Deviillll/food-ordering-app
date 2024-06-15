@@ -47,7 +47,7 @@ const CartPage = ({setCart}) => {
                       size={15}
                     />
                   </div>
-                     <td className="mt-1 font-semibold">${item.price * item.quantity}</td>
+                     <td className="mt-1 font-semibold">$ {Math.round(item.price * item.quantity)}</td>
                      
                  </tr>
              ))}
@@ -58,7 +58,7 @@ const CartPage = ({setCart}) => {
      }
 
     <Link href="/checkout" className="block mt-8 ml-36">
-        <button  className="md:px-6 px-3 py-2  ring-2 ring-orange-500  bg-orange-400 uppercase font-medium transition-colors ease-in-out hover:scale-105 hover:bg-white hover:text-black text-white rounded-xl">
+        <button onClick={()=>setCart(false)} className="md:px-6 px-3 py-2  ring-2 ring-orange-500  bg-orange-400 uppercase font-medium transition-colors ease-in-out hover:scale-105 hover:bg-white hover:text-black text-white rounded-xl">
 
 
             checkout

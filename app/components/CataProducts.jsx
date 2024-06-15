@@ -21,7 +21,7 @@ const CataProducts = ({ catagory }) => {
         return (
           <div
             key={index}
-            className={`w-[40vw] h-64 sm:w-[200px] sm:h-[270px] space-y-4 rounded-t-xl overflow-hidden md:w-[200px] md:h-64 
+            className={`w-[40vw] hover:scale-105 h-64 sm:w-[200px] animate-wiggle sm:h-[270px] space-y-4 rounded-t-xl overflow-hidden md:w-[200px] md:h-64 
              bg-slate-50/70 mt-5 md:mt-8 shadow-md  ${
                catagory === item.cata || catagory === "All" ? "block" : "hidden"
              }`}
@@ -36,7 +36,7 @@ const CataProducts = ({ catagory }) => {
                 <h1 className="text-md font-medium text-orange-500">
                   {item.name}
                 </h1>
-                <img className="w-20" src="/rating_starts.png" alt="" />
+                <img className="w-16" src="/rating_starts.png" alt="" />
                 <p className="text-sm mt-1 text-zinc-800 font-medium">
                   ${item.price}
                 </p>
@@ -45,7 +45,7 @@ const CataProducts = ({ catagory }) => {
                {/* { conditional rendering } */}
                
                 {productIsInCart ? (
-                  <div className="flex items-center justify-between space-x-2">
+                  <div className="flex items-center justify-between space-x-3 md:space-x-4">
                     <Plus
                       className="cursor-pointer"
                       size={15}
@@ -55,7 +55,7 @@ const CataProducts = ({ catagory }) => {
                       {Cart.find((product) => product.id === item.id)?.quantity || 0}
                     </span>
                     <Minus
-                      className="cursor-pointer"
+                      className="cursor-pointer "
                       onClick={() => removePro(item)}
                       size={15}
                     />

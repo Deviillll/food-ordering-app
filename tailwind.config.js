@@ -7,11 +7,27 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          "hero": "url('/bg-1.jpg')",
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'wiggle': 'wiggle 1s ease-in-out ',
+        'wiggleHeader': 'wiggleHeader 1s ease-in ',
+        'pulse-slow': 'pulse 5s ease-in-out infinite',
+        'bounce-slow': 'bounce 2s ease-in-out infinite',
+        
+      },
+      keyframes: {
+        wiggle: {
+          '0%': { opacity: 0 },
+          // '50%': { opacity: 0.5 },
+          '100%': { opacity: 1 },
+        },
+        wiggleHeader: {
+          '0%': { opacity: 0.8 },
+          '0%': { opacity: 0.8 },
+          '0%': { opacity: 0.9 },
+          '50%': { opacity: 0.9 },
+          '100%': { opacity: 1 },
+        }
       },
     },
   },

@@ -23,13 +23,13 @@ const Navbar = () => {
     <nav className="">
     <div className="flex justify-between px-5 h-12 uppercase items-center md:h-[70px]  fixed z-10 w-screen bg-orange-400 shadow-md">
       <div className="">
-        <h1 className="font-semibold text-xl md:text-2xl tracking-tight">Food bay</h1>
+        <Link href={"/"} className="font-semibold text-xl md:text-2xl tracking-tight">Food bay</Link>
       </div>
 
 
       <div className="space-x-7 hidden md:flex  font-medium ">
         {pages.map((page) => (
-          <Link href={page.path} key={page.name} className={`hover:scale-110 transition-transform ease-in-out  ${path===page.path ? "border-b-2" : ""}`}>
+          <Link href={page.path} key={page.name} className={`hover:scale-110 hover:border-b-2 transition-transform ease-in-out  ${path===page.path ? "border-b-2" : ""}`}>
             {page.name}
           </Link>
         ))}
@@ -44,7 +44,7 @@ const Navbar = () => {
           
           }
         <User className="hidden md:block" />
-        <span className="absolute w-4 h-4 -top-1 text-center flex justify-center items-center text-xs md:text-sm  md:left-[16px] left-4 rounded-full bg-slate-200 p-2">{Cart.length}</span>
+        <span className="absolute w-4 h-4 -top-1 text-center flex justify-center items-center text-xs md:font-semibold md:left-[16px] left-4 rounded-full bg-slate-200 p-2">{Cart.length}</span>
        
 
 
@@ -62,7 +62,7 @@ const Navbar = () => {
      {open && 
       <div className=" flex flex-col w-[60vw]  text-center font-semibold text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-6 bg-orange-400 h-[98vh]">
        { pages.map((page)=>(
-        <Link className="inline-block " href={page.path} key={page.name}>
+        <Link className="inline-block " onClick={()=>setOpen(false)} href={page.path} key={page.name}>
           {page.name}
         </Link>
         ))}

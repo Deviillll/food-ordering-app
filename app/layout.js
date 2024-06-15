@@ -9,12 +9,17 @@ const inter = Poppins({
 
 export const metadata = {
   title: "Food Bay",
-  description: "Food Bay is a food delivery service that connects you with the best restaurants in your area Lahore",
+  description: "Food Bay is a food delivery service and  that provide best food in your area Lahore resturant, food delivery, food, food delivery service, food delivery in lahore, food delivery in near",
+   
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
+      
+        
+
       
       <body className={inter.className} >
        <div className="overflow-x-hidden"> 

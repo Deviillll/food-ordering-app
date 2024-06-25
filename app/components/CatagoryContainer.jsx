@@ -7,7 +7,7 @@ const CatagoryItems = () => {
   const [catagory, setCatagory] = useState("All");
 
   return (
-    <div className="w-screen">
+    <div className="w-screen  ">
       <CataMenu setCatagory={setCatagory} catagory={catagory} />
 
       <div className="mt-7 ml-10 text-3xl text-orange-400 underline font-semibold ">

@@ -5,7 +5,7 @@ const CataMenu = ({setCatagory,catagory}) => {
     const Catagory = useCartStore((state) => state.catagory)
 
   return (
-    <div id='item' className='flex  flex-wrap  md:w-full px-2 items-center justify-center md:px-10 md:justify-around mt-10 py-5 text-center  gap-4 '>       
+    <div id='item' className='flex  flex-wrap bg-black/90 py-8 md:w-full px-2 items-center justify-center md:px-10 md:justify-around mt-10 text-center  gap-4 '>       
     {Catagory.map((item, index) => {
         return (
             

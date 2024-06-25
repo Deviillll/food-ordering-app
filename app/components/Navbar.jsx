@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <nav className="">
-    <div className="flex justify-between px-5 h-12 uppercase items-center md:h-[70px]  fixed z-10 w-screen bg-orange-400 shadow-md">
+    <div className="flex justify-between px-5 h-12 uppercase items-center md:h-[70px] fixed z-10 w-screen bg-orange-400 shadow-md">
       <div className="">
         <Link href={"/"} className="font-semibold text-xl md:text-2xl tracking-tight">Food bay</Link>
       </div>
@@ -53,16 +53,16 @@ const Navbar = () => {
         {/* mobile menu */}
 
         <div className="md:hidden">
-          {!open ?  <AlignJustify onClick={() => setOpen((prev) => !prev)} className="transition-all ease-in" size={30}/>
+          {!open ?  <AlignJustify onClick={() => setOpen((prev) => !prev)} className="transition-all ease-in relative" size={30}/>
           :
           <X onClick={() => setOpen((prev) => !prev)} size={30} /> }
         </div>
       </div>
     </div>
      {open && 
-      <div className=" flex flex-col w-[60vw]  text-center font-semibold text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-6 bg-orange-400 h-[98vh]">
+      <div className=" flex flex-col w-[60vw]  text-center font-semibold fixed z-[100] top-12 left-0 text-2xl uppercase transition-all ease-linear delay-150  justify-center items-center space-y-10 tracking-wider bg-orange-400 h-screen">
        { pages.map((page)=>(
-        <Link className="inline-block " onClick={()=>setOpen(false)} href={page.path} key={page.name}>
+        <Link className={`inline-block  ${path===page.path ? "border-b-2" : ""}`} onClick={()=>setOpen(false)} href={page.path} key={page.name}>
           {page.name}
         </Link>
         ))}

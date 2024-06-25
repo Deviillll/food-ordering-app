@@ -15,7 +15,7 @@ const CataProducts = ({ catagory }) => {
   
   
   return (
-    <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2 px-4  md:px-8 mx-auto w-screen h-full">
+    <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2 px-4   md:px-8 mx-auto w-screen h-full">
       {menuitem.map((item, index) => {
         const productIsInCart = isInCart(item.id);
         return (

@@ -78,7 +78,7 @@ const CartPage = ({setCart}) => {
       
       <div>
      
-      <p className="font-bold">{Math.round(Cart.reduce((acc, item) => acc + item.price * item.quantity, 0)+(Cart.length>0 ? 2:0) ))} $</p>
+      <p className="font-bold">{Math.round(Cart.reduce((acc, item) => acc + item.price * item.quantity, 0)+(Cart.length>0 ? 2:0) )} $</p>
       </div>
     </div>
 </div>

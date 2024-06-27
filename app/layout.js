@@ -1,15 +1,15 @@
-import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const inter = Poppins({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+const inter = Nunito({
+  weight: [ '300', '500', '600', '700', ],
    subsets: ["latin"] });
 
 export const metadata = {
   title: "Food Bay",
-  description: "Food Bay is a food delivery service and  that provide best food in your area Lahore resturant, food delivery, food, food delivery service, food delivery in lahore, food delivery in near",
+  description: "Food Bay is a food delivery service and  that provide best food in your area Lahore resturant, food delivery, food, food delivery service, food delivery in lahore",
    
 };
 

@@ -1,5 +1,6 @@
 import useCartStore from "../store/store";
 import { Minus, Plus } from "lucide-react";
+import Image from "next/image";
 
 const CataProducts = ({ catagory }) => {
   const menuitem = useCartStore((state) => state.menuitem);
@@ -21,23 +22,25 @@ const CataProducts = ({ catagory }) => {
         return (
           <div
             key={index}
-            className={`w-[40vw] hover:scale-105 h-64 sm:w-[200px] animate-wiggle sm:h-[270px] space-y-4 rounded-t-xl overflow-hidden md:w-[200px] md:h-64 
+            className={`w-[40vw] hover:scale-105 h-64  sm:w-[200px] animate-wiggle sm:h-[270px] space-y-4 rounded-t-xl overflow-hidden md:w-[200px] md:h-64 
              bg-slate-50/70 mt-5 md:mt-8 shadow-md  ${
                catagory === item.cata || catagory === "All" ? "block" : "hidden"
              }`}
           >
-            <img
+            <Image
+            width={100}
+            height={100}
               src={item.image}
               alt={item.name}
               className="w-full h-40 object-cover  hover:scale-110 rounded-t-xl object-center"
             />
-            <div className="p-2 flex items-center justify-between">
+            <div className="p-2 flex items-center justify-between ">
               <div>
-                <h1 className="text-md font-medium text-orange-500">
+                <h1 className="text-md font-bold text-black ">
                   {item.name}
                 </h1>
-                <img className="w-16" src="/rating_starts.png" alt="" />
-                <p className="text-sm mt-1 text-zinc-800 font-medium">
+                <Image width={50} height={50} className="w-16" src="/rating_starts.png" alt="" />
+                <p className="text-sm mt-1 text-zinc-800 font-bold">
                   ${item.price}
                 </p>
               </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const DownloadApp = () => {
@@ -47,7 +48,7 @@ const DownloadApp = () => {
      </div>
     </div>
     <div className="flex md:ml-auto md:mr-0 mx-auto items-center flex-shrink-0 space-x-4">
-      <img className='w-96 rounded-lg hidden md:block object-center h-72 object-cover ' src="/bg-1.jpg" alt="" />
+      <Image width={200} height={150} className='w-96 rounded-lg hidden md:block object-center h-72 object-cover ' src="/bg-1.jpg" alt="" />
       
     </div>
   </div>

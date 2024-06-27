@@ -2,6 +2,7 @@
 import useCartStore from "../store/store"; 
 import Link from "next/link";
 import { Minus, Plus, X } from "lucide-react";
+import Image from "next/image";
 const CartPage = ({setCart}) => {
     const addToCart = useCartStore((state) => state.addToCart);
     const removePro = useCartStore((state) => state.removeFromCart);
@@ -27,7 +28,7 @@ const CartPage = ({setCart}) => {
              {Cart.map((item, index) => (
                  <tr key={index} className="border border-orange-200 text-sm md:text-md ">
                      <td>
-                         <img src={item.image} alt={item.name} className="w-8 h-8 mt-1 md:w-12 md:h-12 object-cover rounded-full mx-auto " />
+                         <Image width={50} height={50} src={item.image} alt={item.name} className="w-8 h-8 mt-1 md:w-12 md:h-12 object-cover rounded-full mx-auto " />
                      </td>
                      <td className="mt-1 font-medium">{item.name}</td>
                      <td className="mt-1 font-medium">${item.price}</td>

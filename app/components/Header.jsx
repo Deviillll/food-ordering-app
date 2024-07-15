@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Session from "./Session";
 
 const Header = () => {
   return (
@@ -9,6 +10,7 @@ const Header = () => {
       //   backgroundImage: `url('/bg-3.jpg')`,
       // }}
     >
+      <Session />
       <div className="absolute  h-[70vh] animate-wiggleHeader md:h-screen w-screen bg-black/95 z-[2] ">
 
       </div>

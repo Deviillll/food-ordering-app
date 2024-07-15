@@ -2,6 +2,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Session from "./components/Session";
 
 const inter = Nunito({
   weight: [ '300', '500', '600', '700', ],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       
       <body className={inter.className} >
        <div className="overflow-x-hidden"> 
+     
        <Navbar />
         {children}
         <Footer />

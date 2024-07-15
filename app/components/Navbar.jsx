@@ -4,23 +4,36 @@ import { pages } from "../constants/data";
 import Link from "next/link";
 
 import { ShoppingBag } from "lucide-react";
+
 import { User } from "lucide-react";
 import { AlignJustify } from "lucide-react";
 import { X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import useCartStore from '../store/store';
+import useCartArrayStore from "../store/cartStore";
+import Logout from "@/app/components/Logout";
+import useCartStore from "../store/store";
+
+import { useRouter } from "next/navigation"
+
+
 import CartPage from "./CartPage";
 
 
 const Navbar = () => {
+ 
   const [open, setOpen] = useState(false);
   const [cartstate, setCart] = useState(false);
   const path = usePathname();
   
-  const Cart = useCartStore((state) => state.cart);
+  const Cart = useCartArrayStore((state) => state.cart);
+  const getCart = useCartArrayStore((state) => state.updateCart)
+  const sessionEmal = useCartStore((state) => state.sessionEmail);
+
 
   return (
+    
     <nav className="">
+      
     <div className="flex justify-between px-5 h-12 uppercase items-center md:h-[70px] fixed z-10 w-screen bg-orange-400 shadow-md">
       <div className="">
         <Link href={"/"} className="font-semibold text-xl md:text-2xl tracking-tight">Food bay</Link>
@@ -37,14 +50,28 @@ const Navbar = () => {
       <div className="flex justify-between gap-4 md:gap-6 relative ">
        
        
-        <ShoppingBag  onClick={()=>setCart((pre)=>!pre)} className="cursor-pointer hover:scale-105" />
+        <ShoppingBag  onClick={()=>{if(sessionEmal){setCart((pre)=>!pre)} else{alert("please sign-in ")}}} className="cursor-pointer hover:scale-105" />
           {cartstate && 
           
             <CartPage setCart={setCart} />
           
           }
-        <User className="hidden md:block" />
-        <span className="absolute w-4 h-4 -top-1 text-center flex justify-center items-center text-xs md:font-semibold md:left-[16px] left-4 rounded-full bg-slate-200 p-2">{Cart.length}</span>
+
+
+       {sessionEmal ? <span onClick={()=>{ getCart([]); }} className="hidden md:block"> <Logout /></span> :
+       <>
+        <Link href="/sign-in"><User className="hidden md:block" /></Link>
+       
+       </>
+       
+        }
+       {sessionEmal && Cart && (
+  <span className="absolute w-4 h-4 -top-1 text-center flex justify-center items-center text-xs md:font-semibold md:left-[16px] left-4 rounded-full bg-slate-200 p-2">
+    {Cart.length}
+  </span>
+)}
+
+      
        
 
 
@@ -66,7 +93,11 @@ const Navbar = () => {
           {page.name}
         </Link>
         ))}
-        <User size={35} fill="black" />
+
+       {
+        sessionEmal ?  <span  onClick={()=>{ getCart([]); }}  ><Logout/></span> :
+        <Link href="/sign-in"> <User size={35} fill="black" onClick={() => setOpen(false)} /></Link>
+       }
         
       </div>
     }

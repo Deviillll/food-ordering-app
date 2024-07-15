@@ -1,16 +1,59 @@
 import useCartStore from "../store/store";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
+import axios from "axios";
+import useCartArrayStore from "../store/cartStore";
+import { useRouter } from "next/navigation";
 
 const CataProducts = ({ catagory }) => {
   const menuitem = useCartStore((state) => state.menuitem);
-  const addToCart = useCartStore((state) => state.addToCart);
-  const removePro = useCartStore((state) => state.removeFromCart);
-  const Cart = useCartStore((state) => state.cart);
+  const sessionEmail = useCartStore((state) => state.sessionEmail);
+  const router = useRouter();
  
+  const Cart = useCartArrayStore((state) => state.cart);
+  const getCart = useCartArrayStore((state) => state.updateCart) ; 
+  async function fetchCart() {
+    try {
+        if(!sessionEmail){
+            router.push("/sign-in")
+        }
+          const res = await axios.post("/api/cart", { email: sessionEmail });
+           getCart(res.data.cart)
+           console.log(res.data.cart)
+        
+     } catch (error) {
+       console.log(error);         
+
+     }
+ }
+
+
+  const add=async (email,productId)=>{
+    const res=await axios.post("/api/cart/add",{email,productId})
+    fetchCart()
+    console.log(res.data)
+
+   }
+   const sub=async (email,productId)=>{
+    const res=await axios.post("/api/cart/subs",{email,productId})
+    fetchCart()
+    console.log(res.data)
+
+    }
+ 
+  // const isInCart = (productId) => {
+  //   return Cart.some((product) => product.product === productId);
+  // };
   const isInCart = (productId) => {
-    return Cart.some((product) => product.id === productId);
+    if (!Cart) {
+      console.error("Cart is undefined");
+      return false;
+    }
+    return Cart.some((product) => product.product === productId);
   };
+  
+  const addToCart = useCartArrayStore((state) => state.addToCart) ;   
+  const removeFromCart = useCartArrayStore((state) => state.removeFromCart) ;   
   
 
   
@@ -18,19 +61,19 @@ const CataProducts = ({ catagory }) => {
   return (
     <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2 px-4   md:px-8 mx-auto w-screen h-full">
       {menuitem.map((item, index) => {
-        const productIsInCart = isInCart(item.id);
+        const productIsInCart = isInCart(item._id);
         return (
           <div
             key={index}
             className={`w-[40vw] hover:scale-105 h-64  sm:w-[200px] animate-wiggle sm:h-[270px] space-y-4 rounded-t-xl overflow-hidden md:w-[200px] md:h-64 
              bg-slate-50/70 mt-5 md:mt-8 shadow-md  ${
-               catagory === item.cata || catagory === "All" ? "block" : "hidden"
+               catagory === item.category || catagory === "All" ? "block" : "hidden"
              }`}
           >
             <Image
             width={100}
             height={100}
-              src={item.image}
+              src={item.imageUrl}
               alt={item.name}
               className="w-full h-40 object-cover  hover:scale-110 rounded-t-xl object-center"
             />
@@ -52,21 +95,21 @@ const CataProducts = ({ catagory }) => {
                     <Plus
                       className="cursor-pointer"
                       size={15}
-                      onClick={() => addToCart(item)}
+                      onClick={()=>{add(sessionEmail,item._id);if(sessionEmail){ addToCart(item._id)}}}
                     />
                     <span className="text-orange-500 font-semibold text-md">
-                      {Cart.find((product) => product.id === item.id)?.quantity || 0}
+                      {Cart.find((product) => product.product === item._id)?.quantity || 0}
                     </span>
                     <Minus
                       className="cursor-pointer "
-                      onClick={() => removePro(item)}
+                      onClick={()=>{sub(sessionEmail,item._id); if(sessionEmail){ removeFromCart(item._id)}}}
                       size={15}
                     />
                   </div>
                 ) : (
                   <Plus
                     className="cursor-pointer"
-                    onClick={() => addToCart(item)}
+                    onClick={() => {add(sessionEmail,item._id);if(sessionEmail){ addToCart(item._id)}else{router.push("/sign-in")}}}
                     size={20}
                   />
                 )}

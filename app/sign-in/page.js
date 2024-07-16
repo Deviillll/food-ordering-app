@@ -9,8 +9,8 @@ import { redirect } from "next/navigation";
 
 const Page = async () => {
   const session= await getsession()
+  console.log("session",   session)
   if(session){
-    console.log(session)
     return redirect("/")
 
   }

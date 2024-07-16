@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 
 
-const page = async () => {
+const Page = async () => {
   const session= await getsession()
   if(session){
     return redirect("/")
@@ -72,4 +72,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;

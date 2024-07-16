@@ -8,12 +8,12 @@ import connectDb from '@/lib/db/db';
 // Initialize Stripe outside of the API handler
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Connect to the database
-connectDb();
+
 
 // API endpoint to create an order
 export const POST = async (req, res) => {
-  console.log(stripe)
+     await connectDb();
+  
   try {
     const { email, address, phone } = await req.json();
     const user = await User.findOne({email});

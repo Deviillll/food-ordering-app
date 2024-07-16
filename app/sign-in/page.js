@@ -61,7 +61,7 @@ const page = async () => {
         </form>
       
         <p className="text-sm mt-2 ">
-          Don't have an Account  ? 
+          Don&apos;t have an Account  ? 
           <Link href="/sign-up" className="text-orange-500">
             {" "}
             Register

@@ -2,22 +2,14 @@
 import { CldUploadWidget } from "next-cloudinary";
 import { useState } from "react";
 import { Catagory } from "../constants/data";
-import axios from "axios";
+
 
 const ImageUpload = () => {
   const [loading, setLoading] = useState(false);
   const addProduct = async () => {
     setLoading(true);
     try {
-      // await   axios.post("/api/products", {
-      //   name: data.name,
-      //   price: data.price,
-      //   category: data.category,
-      //   imageUrl: imageUrl,
-      // });
-      // setData({ name: "", price: "", category: "" });
-      // setImageUrl("");
-      // window.Location.reload();
+    
       await fetch("/api/products", {
         method: "POST",
         headers: {
@@ -94,7 +86,7 @@ const ImageUpload = () => {
           id="category"
         >
           {Catagory.map((catagory) => (
-            <option value={catagory.name}>{catagory.name}</option>
+            <option key={catagory.name} value={catagory.name}>{catagory.name}</option>
           ))}
         </select>
       </div>

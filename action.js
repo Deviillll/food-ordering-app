@@ -11,8 +11,8 @@ export async function credentialsLogin(formData) {
     const email= formData.get("email")
     const password= formData.get("password")
     if(!email || !password){
-        alert("Please fill all fields")
-        return
+        return 
+        
     }
     
     await signIn("credentials",{email,password,redirectTo:"/"})
@@ -25,5 +25,5 @@ export async function getsession() {
 }
 
 export async function logout() {
-    await signOut( {redirectTo:"/"})
+    await signOut( {redirectTo:"/sign-in"})
 }

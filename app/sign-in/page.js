@@ -10,15 +10,15 @@ import { useEffect } from "react";
 
 const Page =  () => {
   const router = useRouter();
-  const checkSessionAndRedirect = async () => {
-    const session = await getsession();
-    if (session) {
-        return router.push("/");
-    }
-};
-useEffect(() => {
-  checkSessionAndRedirect();
-}, []);
+//   const checkSessionAndRedirect = async () => {
+//     const session = await getsession();
+//     if (session) {
+//         return router.push("/");
+//     }
+// };
+// useEffect(() => {
+//   checkSessionAndRedirect();
+// }, []);
   
 
   return (

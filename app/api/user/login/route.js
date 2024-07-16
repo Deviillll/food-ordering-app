@@ -2,7 +2,7 @@ import connectDb from "@/lib/db/db";
 import User from "@/lib/models/user";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { generateToken } from "@/helper/token";
+
 
 
 
@@ -48,22 +48,22 @@ export const POST = async (req, res) => {
         { status: 400 }
       );
     }
-    const token = (await generateToken(existUser));
+   // const token = (await generateToken(existUser));
 
      
 
    
 
     const response = NextResponse.json(
-        { token, success: true, message: "User login successfully" },
+        { success: true, message: "User login successfully" },
         { status: 200 }
       ); 
-      response.cookies.set("token",token,{
-        httpOnly:true,
-        //cookie expires in 1 days
-      //  expires:new Date(Date.now() + 48 * 60 * 60 * 1000),
+      // response.cookies.set("token",token,{
+      //   httpOnly:true,
+      //   //cookie expires in 1 days
+      // //  expires:new Date(Date.now() + 48 * 60 * 60 * 1000),
 
-      });
+      // });
      
    
 

@@ -11,16 +11,15 @@ const SignUpPage = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const Session = async () => {
+  const checkSession = async () => {
     const session = await getsession();
-    
     if (session) {
-      return router.push("/");
+      router.push("/");
     }
   };
 
   useEffect(() => {
-    Session();
+    checkSession();
   }, []);
 
   const handleRegister = async (e) => {

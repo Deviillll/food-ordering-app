@@ -2,14 +2,14 @@
 import CataMenu from "./CataMenu";
 import CataProducts from "./CataProducts";
 import React, { useState } from "react";
-import FetchProducts from "./FetchProducts";
+
 
 const CatagoryItems = () => {
   const [catagory, setCatagory] = useState("All");
 
   return (
     <div className="w-screen  ">
-      <FetchProducts />
+      
       <CataMenu setCatagory={setCatagory} catagory={catagory} />
 
       <div className="mt-7 ml-10 text-3xl text-orange-400 underline font-semibold ">

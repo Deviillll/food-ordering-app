@@ -1,9 +1,12 @@
+"use client";
 import useCartStore from "../store/store";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 import axios from "axios";
 import useCartArrayStore from "../store/cartStore";
 import { useRouter } from "next/navigation";
+
+import{ useEffect } from "react"
 
 const CataProducts = ({ catagory }) => {
   const menuitem = useCartStore((state) => state.menuitem);
@@ -12,6 +15,26 @@ const CataProducts = ({ catagory }) => {
  
   const Cart = useCartArrayStore((state) => state.cart);
   const getCart = useCartArrayStore((state) => state.updateCart) ; 
+  const setMenuItems = useCartStore((state) => state.setMenuItems);
+
+  const fetchProducts = async () => {
+    try {
+    const response = await axios.get("api/products")
+  
+    setMenuItems(response.data)
+    } catch (error) {
+    console.error(error)
+    }
+}
+
+useEffect(() => {
+    fetchProducts()
+}, [])
+
+
+
+
+
   async function fetchCart() {
     try {
         if(!sessionEmail){
@@ -30,20 +53,17 @@ const CataProducts = ({ catagory }) => {
 
   const add=async (email,productId)=>{
     const res=await axios.post("/api/cart/add",{email,productId})
-    fetchCart()
-    console.log(res.data)
+    await fetchCart()
+    
 
    }
    const sub=async (email,productId)=>{
     const res=await axios.post("/api/cart/subs",{email,productId})
-    fetchCart()
-    console.log(res.data)
+     await fetchCart()
+    
 
     }
  
-  // const isInCart = (productId) => {
-  //   return Cart.some((product) => product.product === productId);
-  // };
   const isInCart = (productId) => {
     if (!Cart) {
       console.error("Cart is undefined");

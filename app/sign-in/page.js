@@ -1,18 +1,24 @@
-
+"use client"
 import { credentialsLogin, socialLogin } from "@/action";
 import { getsession } from "@/action";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 
 
-const Page = async () => {
-  const session= await getsession()
-  if(session){
-    return redirect("/")
-
-  }
+const Page =  () => {
+  const router = useRouter();
+  const checkSessionAndRedirect = async () => {
+    const session = await getsession();
+    if (session) {
+        return router.push("/");
+    }
+};
+useEffect(() => {
+  checkSessionAndRedirect();
+}, []);
   
 
   return (

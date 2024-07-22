@@ -44,7 +44,7 @@ const SignUpPage = () => {
 
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-center'>
-      <div className='w-[60wv] md:w-[45vw] lg:w-[30vw] px-7 py-5 shadow-lg mt-16 rounded-md shadow-gray-300'>
+      <div className='w-[80wv] md:w-[45vw] lg:w-[30vw] px-7 py-5 shadow-lg mt-16 rounded-md shadow-gray-300'>
         <form onSubmit={handleRegister}>
           <div className="">
             <label htmlFor="name" className="leading-7 text-sm text-orange-400">
@@ -102,7 +102,7 @@ const SignUpPage = () => {
         </form>
         <p className="text-sm mt-2">
           Don&apos;t have an Account?
-          <Link href="/sign-up" className="text-orange-500">
+          <Link href="/sign-in" className="text-orange-500">
             {" "}
             Register
           </Link>

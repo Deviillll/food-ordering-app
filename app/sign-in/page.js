@@ -18,7 +18,7 @@ const Page = async () => {
 
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
-    <div className="w-[60vw] md:w-[40vw] lg:w-[30vw] px-8 mt-16 shadow-lg shadow-gray-300 py-8 rounded-sm">
+    <div className="w-[80vw] md:w-[40vw] lg:w-[30vw] px-8 mt-16 shadow-lg shadow-gray-300 py-8 rounded-sm">
     <form  action={credentialsLogin} >
       
       <div className="">
